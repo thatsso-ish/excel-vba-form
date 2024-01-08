@@ -1,121 +1,356 @@
 VERSION 5.00
-Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} UserForm1 
-   Caption         =   "UserForm1"
-   ClientHeight    =   13245
+Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} UserForm2 
+   Caption         =   "UserForm2"
+   ClientHeight    =   12570
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   25275
+   ClientWidth     =   25185
    OleObjectBlob   =   "UserForm2.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
-Attribute VB_Name = "UserForm1"
+Attribute VB_Name = "UserForm2"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub ComboBox1_Change()
+Sub DeleteData(searchValue As String)
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim foundCell As Range
 
-End Sub
+    Set ws = ThisWorkbook.Sheets("Claims Data")
 
-Private Sub ComboBox9_Change()
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
 
+    Set foundCell = ws.Range("A1:B" & lastRow & ",D1:D" & lastRow).Find(What:=searchValue, LookIn:=xlValues, LookAt:=xlWhole)
+
+    If Not foundCell Is Nothing Then
+        foundCell.EntireRow.Delete
+        
+        TextBox2.Value = ""
+        TextBox3.Value = ""
+        TextBox4.Value = ""
+        TextBox5.Value = ""
+        TextBox6.Value = ""
+        TextBox7.Value = ""
+        TextBox8.Value = ""
+        TextBox9.Value = ""
+        TextBox10.Value = ""
+        Label2.Caption = ""
+        TextBox12.Value = ""
+        Label3.Caption = ""
+        TextBox14.Value = ""
+        TextBox15.Value = ""
+        TextBox16.Value = ""
+        Label4.Caption = ""
+        TextBox18.Value = ""
+        Label5.Caption = ""
+        Label6.Caption = ""
+        TextBox21.Value = ""
+        TextBox22.Value = ""
+        TextBox23.Value = ""
+        TextBox24.Value = ""
+        TextBox25.Value = ""
+        TextBox26.Value = ""
+        TextBox27.Value = ""
+        TextBox28.Value = ""
+        Label7.Caption = ""
+        Label8.Caption = ""
+        Label9.Caption = ""
+        Label10.Caption = ""
+        Label11.Caption = ""
+        TextBox34.Value = ""
+        TextBox35.Value = ""
+        Label12.Caption = ""
+        Label13.Caption = ""
+        Label14.Caption = ""
+        TextBox39.Value = ""
+        TextBox40.Value = ""
+        TextBox41.Value = ""
+        TextBox42.Value = ""
+        Label15.Caption = ""
+        TextBox44.Value = ""
+        TextBox45.Value = ""
+        
+        foundRow = 0
+        MsgBox "Data deleted successfully."
+    Else
+        MsgBox "No data found to delete."
+    End If
+    
 End Sub
 
 Private Sub CommandButton1_Click()
+    DeleteData TextBox1.Value
+End Sub
 
-    ' Assuming "Sheet1" is the name of the worksheet where you want to write the data
+Private Sub CommandButton2_Click()
+    Unload Me
+End Sub
+
+Private Sub CommandButton3_Click()
+UpdateData TextBox1.Value
+End Sub
+
+Private Sub Frame1_Click()
+
+End Sub
+
+Private Sub Label1_Click()
+
+End Sub
+
+Private Sub Label15_Click()
+
+End Sub
+
+Private Sub Label2_Click()
+
+End Sub
+
+Private Sub TextBox2_Change()
+
+End Sub
+
+Private Sub TextBox44_Change()
+
+End Sub
+
+Private Sub UserForm_Click()
+
+End Sub
+
+Sub SearchData(searchValue As String)
     Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim foundCell As Range
+
+    Set ws = ThisWorkbook.Sheets("Claims Data")
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    Set foundCell = ws.Range("A1:B" & lastRow & ",E1:E" & lastRow).Find(What:=searchValue, LookIn:=xlValues, LookAt:=xlWhole)
+
+    If Not foundCell Is Nothing Then
+      
+        TextBox2.Value = ws.Cells(foundCell.Row, 1).Value
+        TextBox3.Value = ws.Cells(foundCell.Row, 2).Value
+        TextBox4.Value = ws.Cells(foundCell.Row, 3).Value
+        TextBox5.Value = ws.Cells(foundCell.Row, 4).Value
+        TextBox6.Value = ws.Cells(foundCell.Row, 5).Value
+        TextBox7.Value = ws.Cells(foundCell.Row, 6).Value
+        TextBox8.Value = ws.Cells(foundCell.Row, 7).Value
+        TextBox9.Value = ws.Cells(foundCell.Row, 8).Value
+        TextBox10.Value = ws.Cells(foundCell.Row, 9).Value
+        Label2.Caption = ws.Cells(foundCell.Row, 10).Value
+        TextBox12.Value = ws.Cells(foundCell.Row, 11).Value
+        Label3.Caption = ws.Cells(foundCell.Row, 12).Value
+        TextBox14.Value = ws.Cells(foundCell.Row, 13).Value
+        TextBox15.Value = ws.Cells(foundCell.Row, 14).Value
+        TextBox16.Value = ws.Cells(foundCell.Row, 15).Value
+        Label4.Caption = ws.Cells(foundCell.Row, 16).Value
+        TextBox18.Value = ws.Cells(foundCell.Row, 17).Value
+        Label5.Caption = ws.Cells(foundCell.Row, 18).Value
+        Label6.Caption = ws.Cells(foundCell.Row, 19).Value
+        TextBox21.Value = ws.Cells(foundCell.Row, 20).Value
+        TextBox22.Value = ws.Cells(foundCell.Row, 21).Value
+        TextBox23.Value = ws.Cells(foundCell.Row, 22).Value
+        TextBox24.Value = ws.Cells(foundCell.Row, 23).Value
+        TextBox25.Value = ws.Cells(foundCell.Row, 24).Value
+        TextBox26.Value = ws.Cells(foundCell.Row, 25).Value
+        TextBox27.Value = ws.Cells(foundCell.Row, 26).Value
+        TextBox28.Value = ws.Cells(foundCell.Row, 27).Value
+        Label7.Caption = ws.Cells(foundCell.Row, 28).Value
+        Label8.Caption = ws.Cells(foundCell.Row, 29).Value
+        Label9.Caption = ws.Cells(foundCell.Row, 30).Value
+        Label10.Caption = ws.Cells(foundCell.Row, 31).Value
+        Label11.Caption = ws.Cells(foundCell.Row, 32).Value
+        TextBox34.Value = ws.Cells(foundCell.Row, 33).Value
+        TextBox35.Value = ws.Cells(foundCell.Row, 34).Value
+        Label12.Caption = ws.Cells(foundCell.Row, 35).Value
+        Label13.Caption = ws.Cells(foundCell.Row, 36).Value
+        Label14.Caption = ws.Cells(foundCell.Row, 37).Value
+        TextBox39.Value = ws.Cells(foundCell.Row, 38).Value
+        TextBox40.Value = ws.Cells(foundCell.Row, 39).Value
+        TextBox41.Value = ws.Cells(foundCell.Row, 40).Value
+        TextBox42.Value = ws.Cells(foundCell.Row, 41).Value
+        Label15.Caption = ws.Cells(foundCell.Row, 42).Value
+        TextBox44.Value = ws.Cells(foundCell.Row, 43).Value
+        TextBox45.Value = ws.Cells(foundCell.Row, 44).Value
+        
+        EnableTextboxes True
+        
+    Else
+        
+        TextBox2.Value = ""
+        TextBox3.Value = ""
+        TextBox4.Value = ""
+        TextBox5.Value = ""
+        TextBox6.Value = ""
+        TextBox7.Value = ""
+        TextBox8.Value = ""
+        TextBox9.Value = ""
+        TextBox10.Value = ""
+        Label2.Caption = ""
+        TextBox12.Value = ""
+        Label3.Caption = ""
+        TextBox14.Value = ""
+        TextBox15.Value = ""
+        TextBox16.Value = ""
+        Label4.Caption = ""
+        TextBox18.Value = ""
+        Label5.Caption = ""
+        Label6.Caption = ""
+        TextBox21.Value = ""
+        TextBox22.Value = ""
+        TextBox23.Value = ""
+        TextBox24.Value = ""
+        TextBox25.Value = ""
+        TextBox26.Value = ""
+        TextBox27.Value = ""
+        TextBox28.Value = ""
+        Label7.Caption = ""
+        Label8.Caption = ""
+        Label9.Caption = ""
+        Label10.Caption = ""
+        Label11.Caption = ""
+        TextBox34.Value = ""
+        TextBox35.Value = ""
+        Label12.Caption = ""
+        Label13.Caption = ""
+        Label14.Caption = ""
+        TextBox39.Value = ""
+        TextBox40.Value = ""
+        TextBox41.Value = ""
+        TextBox42.Value = ""
+        Label15.Caption = ""
+        TextBox44.Value = ""
+        TextBox45.Value = ""
+        
+        EnableTextboxes False
+        
+    End If
+End Sub
+
+Sub EnableTextboxes(enable As Boolean)
+    TextBox2.Enabled = enable
+    TextBox3.Enabled = enable
+    TextBox4.Enabled = enable
+    TextBox5.Enabled = enable
+    TextBox6.Enabled = enable
+    TextBox7.Enabled = enable
+    TextBox8.Enabled = enable
+    TextBox9.Enabled = enable
+    TextBox10.Enabled = enable
+    TextBox12.Enabled = enable
+    TextBox14.Enabled = enable
+    TextBox15.Enabled = enable
+    TextBox16.Enabled = enable
+    TextBox18.Enabled = enable
+    TextBox21.Enabled = enable
+    TextBox22.Enabled = enable
+    TextBox23.Enabled = enable
+    TextBox24.Enabled = enable
+    TextBox25.Enabled = enable
+    TextBox26.Enabled = enable
+    TextBox27.Enabled = enable
+    TextBox28.Enabled = enable
+    TextBox34.Enabled = enable
+    TextBox35.Enabled = enable
+    TextBox39.Enabled = enable
+    TextBox40.Enabled = enable
+    TextBox41.Enabled = enable
+    TextBox42.Enabled = enable
+    TextBox44.Enabled = enable
+    TextBox45.Enabled = enable
+End Sub
+Private Sub TextBox1_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+    SearchData TextBox1.Value
+End Sub
+
+Private Sub UserForm_Initialize()
+    DisableAllTextboxes
+    TextBox1.Enabled = True
+    
+    Label2.Caption = ""
+    Label3.Caption = ""
+    Label4.Caption = ""
+    Label5.Caption = ""
+    Label6.Caption = ""
+    Label7.Caption = ""
+    Label8.Caption = ""
+    Label9.Caption = ""
+    Label10.Caption = ""
+    Label11.Caption = ""
+    Label12.Caption = ""
+    Label13.Caption = ""
+    Label14.Caption = ""
+    Label15.Caption = ""
+End Sub
+
+Sub DisableAllTextboxes()
+    TextBox2.Enabled = False
+    TextBox3.Enabled = False
+    TextBox4.Enabled = False
+    TextBox5.Enabled = False
+    TextBox6.Enabled = False
+    TextBox7.Enabled = False
+    TextBox8.Enabled = False
+    TextBox9.Enabled = False
+    TextBox10.Enabled = False
+    TextBox12.Enabled = False
+    TextBox14.Enabled = False
+    TextBox15.Enabled = False
+    TextBox16.Enabled = False
+    TextBox18.Enabled = False
+    TextBox21.Enabled = False
+    TextBox22.Enabled = False
+    TextBox23.Enabled = False
+    TextBox24.Enabled = False
+    TextBox25.Enabled = False
+    TextBox26.Enabled = False
+    TextBox27.Enabled = False
+    TextBox28.Enabled = False
+    TextBox34.Enabled = False
+    TextBox35.Enabled = False
+    TextBox39.Enabled = False
+    TextBox40.Enabled = False
+    TextBox41.Enabled = False
+    TextBox42.Enabled = False
+    TextBox44.Enabled = False
+    TextBox45.Enabled = False
+End Sub
+
+Sub UpdateData(searchValue As String)
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim foundCell As Range
+
     Set ws = ThisWorkbook.Sheets("Claims Data")
 
-    ' Find the first empty row in column A
-    Dim emptyRow As Long
-    emptyRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row + 1
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    Set foundCell = ws.Range("A1:B" & lastRow & ",D1:D" & lastRow).Find(What:=searchValue, LookIn:=xlValues, LookAt:=xlWhole)
+
+    If Not foundCell Is Nothing Then
     
-    Dim value1 As String
-    Dim value2 As String
-    Dim value3 As String
-    Dim value4 As String
-    Dim value5 As String
-    Dim value6 As Date
-    Dim value7 As String
-    Dim value8 As String
-    Dim value9 As String
     Dim value10 As String
-    Dim value11 As Date
     Dim value12 As Integer
-    Dim value13 As String
-    Dim value14 As String
-    Dim value15 As Date
     Dim value16 As Long
-    Dim value17 As Date
     Dim value18 As Integer
     Dim value19 As Long
-    Dim value20 As String
-    Dim value21 As String
-    Dim value22 As String
-    Dim value23 As String
-    Dim value24 As String
-    Dim value25 As Date
-    Dim value26 As Date
-    Dim value27 As Date
     Dim value28 As Long
     Dim value29 As Integer
     Dim value30 As Integer
     Dim value31 As String
     Dim value32 As String
-    Dim value33 As String
-    Dim value34 As Currency
     Dim value35 As Currency
     Dim value36 As Currency
     Dim value37 As Currency
-    Dim value38 As Currency
-    Dim value39 As Currency
-    Dim value40 As Currency
-    Dim value41 As Date
     Dim value42 As Long
-    Dim value43 As String
-    Dim value44 As Date
-    
-    
-    ' age analysis calculations
     
     Dim yearsDD As Long
     Dim monthsDD As Long
     Dim daysDD As Long
-
-    ' Retrieve values from TextBoxes
-    value1 = TextBox1.value
-    value2 = TextBox17.value
-    value3 = ComboBox1.value
-    value4 = ComboBox5.value
-    value5 = TextBox13.value
-    value6 = TextBox12.value
-    value7 = TextBox14.value
-    value8 = TextBox2.value
-    value9 = ComboBox4.value
-    value11 = TextBox5.value
-    value13 = ComboBox8.value
-    value14 = TextBox4.value
-    value15 = TextBox8.value
-    value17 = TextBox10.value
-    value20 = ComboBox3.value
-    value21 = CheckBox1.value
-    value22 = ComboBox2.value
-    value23 = ComboBox6.value
-    value24 = ComboBox7.value
-    value25 = TextBox7.value
-    value26 = TextBox15.value
-    value27 = TextBox3.value
-    value33 = ComboBox9.value
-    value34 = TextBox11.value
-    value38 = TextBox18.value
-    value39 = TextBox9.value
-    value40 = TextBox16.value
-    value41 = TextBox19.value
-    value43 = TextBox20.value
-    value44 = TextBox21.value
     
-    ' Assuming TextBox12 and TextBox10 are the TextBoxes with dates
     Dim startDate As Date
     Dim endDate As Date
     Dim datecc As Date
@@ -124,22 +359,19 @@ Private Sub CommandButton1_Click()
     Dim notdate As Date
     Dim factor As Double
     
-    startDate = DateValue(value6)
-    endDate = DateValue(value17)
-    notdate = DateValue(value11)
-    datecc = DateValue(value26)
-    dcc = DateValue(value25)
-    ati = DateValue(value15)
-    sheetdate = Sheets("Formula Sheet").Range("$E$26").value
-    factor = 1 - Sheets("Formula Sheet").Range("$E$23").value
-    
-
-    ' Calculate the date difference
+    startDate = DateValue(TextBox7.Value)
+    endDate = DateValue(TextBox18.Value)
+    notdate = DateValue(TextBox12.Value)
+    datecc = DateValue(TextBox27.Value)
+    dcc = DateValue(TextBox26.Value)
+    ati = DateValue(TextBox16.Value)
+    sheetdate = Sheets("Formula Sheet").Range("$E$26").Value
+    factor = 1 - Sheets("Formula Sheet").Range("$E$23").Value
+  
     yearsDD = DateDiff("yyyy", startDate, endDate)
     monthsDD = DateDiff("m", startDate, endDate) Mod 12
     daysDD = DateDiff("d", DateAdd("m", monthsDD, DateAdd("yyyy", yearsDD, startDate)), endDate)
 
-    ' Concatenate the results into one variable
     value10 = yearsDD & " Years " & monthsDD & " Months " & daysDD & " Days"
     value12 = Year(notdate)
     value16 = Application.WorksheetFunction.NetworkDays(ati, datecc)
@@ -147,517 +379,83 @@ Private Sub CommandButton1_Click()
     value19 = Application.WorksheetFunction.NetworkDays(endDate, notdate)
     value28 = Application.WorksheetFunction.NetworkDays(dcc, datecc)
     value29 = Year(datecc)
-    value39 = value37 / TextBox11 * TextBox18
+   ' value39 = value37 / TextBox12.Value * TextBox18
     value42 = Application.WorksheetFunction.NetworkDays(notdate, datecc)
     
-    If CheckBox1.value = True Then
     
-    value21 = "Yes"
-    
-    Else
-    
-    value21 = "No"
-    
-    End If
-    
-    If ComboBox6.value = "Closed" Then
-    
+    If TextBox24.Value = "Closed" Then
         value30 = Application.WorksheetFunction.RoundUp(DateDiff("m", notdate, sheetdate), 0)
-        
     End If
     
-    If value30 <> "" Then
-    
-       value31 = Application.VLookup(value30, Sheets("Formula Sheet").Range("$A:$B"), 2, False)
-       
+    If value30 <> 0 Then
+       value31 = Application.VLookup(value30, Sheets("Formula Sheet").Range("$A:$B"), 2, 0)
     End If
   
     If value31 <> "" Then
-        
-       value32 = Application.VLookup(value31, Sheets("Formula Sheet").Range("$E$3:$F$19"), 2, False)
-       
+       value32 = Application.VLookup(value31, Sheets("Formula Sheet").Range("$E$3:$F$19"), 2, 0)
     End If
   
     If value32 <> "" Then
-        
         value35 = value34 * (1 - value32)
-       
     End If
 
-    If ComboBox2 = "Pending" Then
-    
+    If TextBox23.Value = "Pending" Then
        value36 = value34 * factor
-        
     End If
        
-    If value35 = "" And value36 = "" Then
-        
+    If value35 = 0 And value36 = 0 Then
         value37 = value34
-        
     Else
-    
         value37 = value35 + value36
-        
     End If
-   
-        
-    ' Write values to the worksheet in the first empty row
-    ws.Cells(emptyRow, 1).value = value1
-    ws.Cells(emptyRow, 2).value = value2
-    ws.Cells(emptyRow, 3).value = value3
-    ws.Cells(emptyRow, 4).value = value4
-    ws.Cells(emptyRow, 5).value = value5
-    ws.Cells(emptyRow, 6).value = value6
-    ws.Cells(emptyRow, 7).value = value7
-    ws.Cells(emptyRow, 8).value = value8
-    ws.Cells(emptyRow, 9).value = value9
-    ws.Cells(emptyRow, 10).value = value10
-    ws.Cells(emptyRow, 11).value = value11
-    ws.Cells(emptyRow, 12).value = value12
-    ws.Cells(emptyRow, 13).value = value13
-    ws.Cells(emptyRow, 14).value = value14
-    ws.Cells(emptyRow, 15).value = value15
-    ws.Cells(emptyRow, 16).value = value16
-    ws.Cells(emptyRow, 17).value = value17
-    ws.Cells(emptyRow, 18).value = value18
-    ws.Cells(emptyRow, 19).value = value19
-    ws.Cells(emptyRow, 20).value = value20
-    ws.Cells(emptyRow, 21).value = value21
-    ws.Cells(emptyRow, 22).value = value22
-    ws.Cells(emptyRow, 23).value = value23
-    ws.Cells(emptyRow, 24).value = value24
-    ws.Cells(emptyRow, 25).value = value25
-    ws.Cells(emptyRow, 26).value = value26
-    ws.Cells(emptyRow, 27).value = value27
-    ws.Cells(emptyRow, 28).value = value28
-    ws.Cells(emptyRow, 29).value = value29
-    ws.Cells(emptyRow, 30).value = value30
-    ws.Cells(emptyRow, 31).value = value31
-    ws.Cells(emptyRow, 32).value = value32
-    ws.Cells(emptyRow, 33).value = value33
-    ws.Cells(emptyRow, 34).value = value34
-    ws.Cells(emptyRow, 35).value = value35
-    ws.Cells(emptyRow, 36).value = value36
-    ws.Cells(emptyRow, 37).value = value37
-    ws.Cells(emptyRow, 38).value = value38
-    ws.Cells(emptyRow, 39).value = value39
-    ws.Cells(emptyRow, 40).value = value40
-    ws.Cells(emptyRow, 41).value = value41
-    ws.Cells(emptyRow, 42).value = value42
-    ws.Cells(emptyRow, 43).value = value43
-    ws.Cells(emptyRow, 44).value = value44
-  
-  
-    Unload Me
-    CommandButton2_Click
-    MsgBox ("Claim successfully added")
     
-End Sub
+        ws.Cells(foundCell.Row, 1).Value = TextBox2.Value
+        ws.Cells(foundCell.Row, 2).Value = TextBox3.Value
+        ws.Cells(foundCell.Row, 3).Value = TextBox4.Value
+        ws.Cells(foundCell.Row, 4).Value = TextBox5.Value
+        ws.Cells(foundCell.Row, 5).Value = TextBox6.Value
+        ws.Cells(foundCell.Row, 6).Value = TextBox7.Value
+        ws.Cells(foundCell.Row, 7).Value = TextBox8.Value
+        ws.Cells(foundCell.Row, 8).Value = TextBox9.Value
+        ws.Cells(foundCell.Row, 9).Value = TextBox10.Value
+        ws.Cells(foundCell.Row, 10).Value = value10
+        ws.Cells(foundCell.Row, 11).Value = TextBox12.Value
+        ws.Cells(foundCell.Row, 12).Value = value12
+        ws.Cells(foundCell.Row, 13).Value = TextBox14.Value
+        ws.Cells(foundCell.Row, 14).Value = TextBox15.Value
+        ws.Cells(foundCell.Row, 15).Value = TextBox16.Value
+        ws.Cells(foundCell.Row, 16).Value = value16
+        ws.Cells(foundCell.Row, 17).Value = TextBox18.Value
+        ws.Cells(foundCell.Row, 18).Value = value18
+        ws.Cells(foundCell.Row, 19).Value = value19
+        ws.Cells(foundCell.Row, 20).Value = TextBox21.Value
+        ws.Cells(foundCell.Row, 21).Value = TextBox22.Value
+        ws.Cells(foundCell.Row, 22).Value = TextBox23.Value
+        ws.Cells(foundCell.Row, 23).Value = TextBox24.Value
+        ws.Cells(foundCell.Row, 24).Value = TextBox25.Value
+        ws.Cells(foundCell.Row, 25).Value = TextBox26.Value
+        ws.Cells(foundCell.Row, 26).Value = TextBox27.Value
+        ws.Cells(foundCell.Row, 27).Value = TextBox28.Value
+        ws.Cells(foundCell.Row, 28).Value = value28
+        ws.Cells(foundCell.Row, 29).Value = value29
+        ws.Cells(foundCell.Row, 30).Value = value30
+        ws.Cells(foundCell.Row, 31).Value = value31
+        ws.Cells(foundCell.Row, 32).Value = value32
+        ws.Cells(foundCell.Row, 33).Value = TextBox34.Value
+        ws.Cells(foundCell.Row, 34).Value = TextBox35.Value
+        ws.Cells(foundCell.Row, 35).Value = value35
+        ws.Cells(foundCell.Row, 36).Value = value36
+        ws.Cells(foundCell.Row, 37).Value = value37
+        ws.Cells(foundCell.Row, 38).Value = TextBox39.Value
+        ws.Cells(foundCell.Row, 39).Value = TextBox40.Value
+        ws.Cells(foundCell.Row, 40).Value = TextBox41.Value
+        ws.Cells(foundCell.Row, 41).Value = TextBox42.Value
+        ws.Cells(foundCell.Row, 42).Value = value42
+        ws.Cells(foundCell.Row, 43).Value = TextBox44.Value
+        ws.Cells(foundCell.Row, 44).Value = TextBox45.Value
 
-Private Sub CommandButton2_Click()
-
-Dim cntrl As Control
-
-For Each cntrl In Me.Controls
-If TypeName(cntrl) = "ComboBox" Or TypeName(cntrl) = "TextBox" Then
-cntrl.value = ""
-ElseIf TypeName(cntrl) = "CheckBox" Then
-cntrl.value = False
-End If
-Next cntrl
-
-End Sub
-
-Private Sub CommandButton3_Click()
-Unload Me
-End Sub
-
-Private Sub Frame1_Click()
-
-End Sub
-
-Private Sub Frame1_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-End Sub
-
-Private Sub Image1_BeforeDragOver(ByVal Cancel As MSForms.ReturnBoolean, ByVal Data As MSForms.DataObject, ByVal X As Single, ByVal Y As Single, ByVal DragState As MSForms.fmDragState, ByVal Effect As MSForms.ReturnEffect, ByVal Shift As Integer)
-
-End Sub
-
-Private Sub Label21_Click()
-
-End Sub
-
-Private Sub Label25_Click()
-
-End Sub
-
-Private Sub Label30_Click()
-
-End Sub
-
-Private Sub Label9_Click()
-
-End Sub
-
-Private Sub TextBox1_Change()
-
-End Sub
-
-Private Sub TextBox1_Enter()
-
-End Sub
-
-Private Sub TextBox1_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-    Dim inputValue As String
-    inputValue = Trim(TextBox1.value)
-
-    If Len(inputValue) <> 10 And inputValue <> "N/A" And inputValue <> "n/A" And inputValue <> "N/a" And inputValue <> "n/a" Then
-        MsgBox "Invalid input. Please enter a valide policy number or 'N/A'.", vbExclamation
-        TextBox1.SetFocus
-        Cancel = True
-    End If
-
-End Sub
-
-Private Sub TextBox10_Change()
-
-End Sub
-
-Private Sub TextBox10_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-If Not IsDate(TextBox10.value) Then
-        TextBox10.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox10.SetFocus
-        Cancel = True
-    End If
-End Sub
-
-Private Sub TextBox11_Change()
-
-End Sub
-
-Private Sub TextBox11_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-    If Not IsNumeric(TextBox11.value) Then
-        MsgBox "Invalid currency value. Please enter a numeric value.", vbExclamation
-        TextBox11.SetFocus
-        Cancel = True
+        MsgBox "Data updated successfully."
     Else
-        TextBox11.value = Format(TextBox11.value, "R #,##0.00")
+        MsgBox "No data found to update."
     End If
-
-End Sub
-
-Private Sub TextBox12_Change()
-
-End Sub
-
-Private Sub TextBox12_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-    
-    If Not IsDate(TextBox12.value) Then
-        TextBox12.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox12.SetFocus
-        Cancel = True
-    End If
-
-End Sub
-
-Private Sub TextBox14_Change()
-
-End Sub
-
-Private Sub TextBox14_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-    If Trim(TextBox14.value) = "" Then
-        MsgBox "Client's name cannot be left empty. Please enter a value.", vbExclamation
-        TextBox14.SetFocus
-        Cancel = True
-    End If
-
-End Sub
-
-Private Sub TextBox14_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
-
-    If KeyAscii >= Asc("0") And KeyAscii <= Asc("9") Then
-       KeyAscii = 0
-    End If
-
-End Sub
-
-Private Sub TextBox15_Change()
-
-End Sub
-
-Private Sub TextBox15_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-If Not IsDate(TextBox15.value) Then
-        TextBox15.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox15.SetFocus
-        Cancel = True
-    End If
-End Sub
-
-Private Sub TextBox16_Change()
-
-End Sub
-
-Private Sub TextBox16_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-    If Not IsNumeric(TextBox16.value) Then
-        MsgBox "Invalid currency value. Please enter a numeric value.", vbExclamation
-        TextBox16.SetFocus
-        Cancel = True
-    Else
-        TextBox16.value = Format(TextBox16.value, "R #,##0.00")
-    End If
-
-End Sub
-
-Private Sub TextBox18_Change()
-
-End Sub
-
-Private Sub TextBox18_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-    If Not IsNumeric(TextBox18.value) Then
-        MsgBox "Invalid currency value. Please enter a numeric value.", vbExclamation
-        TextBox18.SetFocus
-        Cancel = True
-    Else
-        TextBox18.value = Format(TextBox18.value, "R #,##0.00")
-    End If
-
-End Sub
-
-Private Sub TextBox19_Change()
-
-End Sub
-
-Private Sub TextBox19_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-If Not IsDate(TextBox19.value) Then
-        TextBox19.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox19.SetFocus
-        Cancel = True
-    End If
-
-End Sub
-
-Private Sub TextBox20_Change()
-
-
-
-End Sub
-
-Private Sub TextBox20_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
-
-End Sub
-
-Private Sub TextBox21_Change()
-
-End Sub
-
-Private Sub TextBox21_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-If Not IsDate(TextBox21.value) Then
-        TextBox21.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox21.SetFocus
-        Cancel = True
-    End If
-
-End Sub
-
-Private Sub TextBox3_Change()
-
-End Sub
-
-Private Sub TextBox3_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-If Not IsDate(TextBox3.value) Then
-        TextBox3.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox3.SetFocus
-        Cancel = True
-    End If
-End Sub
-
-Private Sub TextBox4_Change()
-
-End Sub
-
-Private Sub TextBox4_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
-
-    If KeyAscii >= Asc("0") And KeyAscii <= Asc("9") Then
-       KeyAscii = 0
-    End If
-
-End Sub
-
-Private Sub TextBox5_Change()
-
-End Sub
-
-Private Sub TextBox5_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-If Not IsDate(TextBox5.value) Then
-        TextBox5.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox5.SetFocus
-        Cancel = True
-    End If
-End Sub
-
-Private Sub TextBox7_Change()
-
-End Sub
-
-Private Sub TextBox7_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-If Not IsDate(TextBox7.value) Then
-        TextBox7.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox7.SetFocus
-        Cancel = True
-    End If
-End Sub
-
-Private Sub TextBox8_Change()
-
-End Sub
-
-Private Sub TextBox8_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-If Not IsDate(TextBox8.value) Then
-        TextBox8.value = Format(CDate(enteredDate), "dd mmmm yyyy")
-        MsgBox "Invalid date. Please enter a valid date.", vbExclamation
-        TextBox8.SetFocus
-        Cancel = True
-    End If
-
-End Sub
-
-Private Sub TextBox9_Change()
-
-End Sub
-
-Private Sub TextBox9_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-
-    If Not IsNumeric(TextBox9.value) Then
-        MsgBox "Invalid currency value. Please enter a numeric value.", vbExclamation
-        TextBox9.SetFocus
-        Cancel = True
-    Else
-        TextBox9.value = Format(TextBox9.value, "R #,##0.00")
-    End If
-
-End Sub
-
-Private Sub UserForm_Activate()
-
-    Image1.PictureSizeMode = fmSizeModeStretch
-    Image1.Height = 96
-    Image1.Width = 828
-    Image1.Picture = LoadPicture("C:\Users\ingobeni\Pictures\R.jfif")
-
-ComboBox1.Style = fmStyleDropDownList
-ComboBox2.Style = fmStyleDropDownList
-ComboBox3.Style = fmStyleDropDownList
-ComboBox4.Style = fmStyleDropDownList
-ComboBox5.Style = fmStyleDropDownList
-ComboBox6.Style = fmStyleDropDownList
-ComboBox7.Style = fmStyleDropDownList
-ComboBox8.Style = fmStyleDropDownList
-ComboBox9.Style = fmStyleDropDownList
-
-Me.ComboBox1.AddItem "Full Life"
-Me.ComboBox1.AddItem "ADB"
-
-Me.ComboBox5.AddItem "Full Life"
-Me.ComboBox5.AddItem "ADB"
-
-Me.ComboBox4.AddItem "Gauteng"
-Me.ComboBox4.AddItem "Mpumalanga"
-Me.ComboBox4.AddItem "Limpopo"
-Me.ComboBox4.AddItem "Free State"
-Me.ComboBox4.AddItem "North West"
-Me.ComboBox4.AddItem "Kwa Zulu Natal"
-Me.ComboBox4.AddItem "Northern Cape"
-Me.ComboBox4.AddItem "Western Cape"
-Me.ComboBox4.AddItem "Eastern Cape"
-
-Me.ComboBox3.AddItem "N/A"
-Me.ComboBox3.AddItem "Natural"
-Me.ComboBox3.AddItem "Suicide"
-Me.ComboBox3.AddItem "Terminal Illness Claim"
-Me.ComboBox3.AddItem "Unknown"
-Me.ComboBox3.AddItem "Unnatural"
-
-Me.ComboBox2.AddItem "Approved"
-Me.ComboBox2.AddItem "Cancelled"
-Me.ComboBox2.AddItem "Closed"
-Me.ComboBox2.AddItem "Pending"
-Me.ComboBox2.AddItem "Rejected"
-
-Me.ComboBox6.AddItem "Approved/Pending Payment"
-Me.ComboBox6.AddItem "Claim cancelled"
-Me.ComboBox6.AddItem "Closed"
-Me.ComboBox6.AddItem "MST"
-Me.ComboBox6.AddItem "No Cover Rejected"
-Me.ComboBox6.AddItem "Paid"
-Me.ComboBox6.AddItem "Pending"
-Me.ComboBox6.AddItem "Pending-INV"
-Me.ComboBox6.AddItem "Policy excl Rejected"
-
-Me.ComboBox7.AddItem "Closed"
-Me.ComboBox7.AddItem "Life Assured is still alive according to DHA"
-Me.ComboBox7.AddItem "N/A"
-Me.ComboBox7.AddItem "OLTI- Case"
-Me.ComboBox7.AddItem "Pending"
-Me.ComboBox7.AddItem "Pending-INV"
-Me.ComboBox7.AddItem "Rejected/OLTI overturn-Approved"
-
-Me.ComboBox8.AddItem "Asiphe"
-Me.ComboBox8.AddItem "Bongisipho"
-Me.ComboBox8.AddItem "Cristal"
-Me.ComboBox8.AddItem "Cyril"
-Me.ComboBox8.AddItem "Kaizer"
-Me.ComboBox8.AddItem "Kelebogile"
-Me.ComboBox8.AddItem "Kreban"
-Me.ComboBox8.AddItem "Naledi"
-Me.ComboBox8.AddItem "Refiloe"
-Me.ComboBox8.AddItem "Sello"
-Me.ComboBox8.AddItem "Simone"
-Me.ComboBox8.AddItem "Terry"
-Me.ComboBox8.AddItem "Tshidi"
-
-Me.ComboBox9.AddItem "Life Assured is still alive according to DHA"
-Me.ComboBox9.AddItem "No Cover - ADB Cover Only-Policy sold on ADB"
-Me.ComboBox9.AddItem "No Cover - Cover dropped from Full Life to ADB Cover"
-Me.ComboBox9.AddItem "No Cover - Death before inception"
-Me.ComboBox9.AddItem "No Cover - Fraud / Dishonesty"
-Me.ComboBox9.AddItem "No Cover - Not Terminal Illness"
-Me.ComboBox9.AddItem "No Cover - Willfully breaking the law"
-Me.ComboBox9.AddItem "No Cover - Policy cancelled before date of death"
-Me.ComboBox9.AddItem "No Cover - First premium not received for cover to start"
-Me.ComboBox9.AddItem "No Cover - Policy lapsed/cancelled before date of death"
-Me.ComboBox9.AddItem "Non Compliance with RR"
-Me.ComboBox9.AddItem "Non Disclosure - Criminal Activities"
-Me.ComboBox9.AddItem "Non Disclosure - Material information"
-Me.ComboBox9.AddItem "Non Disclosure - Material Medical Conditions"
-Me.ComboBox9.AddItem "Non Disclosure - True, Material and Complete Information"
-Me.ComboBox9.AddItem "Not a terminal illness"
-Me.ComboBox9.AddItem "Suicide within the 2 year waiting period"
-Me.ComboBox9.AddItem "Willfully breaking the law"
-Me.ComboBox9.AddItem " "
-
-
-End Sub
-
-Private Sub UserForm_Click()
-
 End Sub
